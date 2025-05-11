@@ -1,107 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S.Rishi Vardhan - Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-        }
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: linear-gradient(to right, #667eea, #764ba2);
-            color: white;
-        }
-        .projects img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-        .social-links {
-            margin-top: 20px;
-        }
-        .social-links a {
-            margin: 0 10px;
-            color: white;
-            font-size: 1.5rem;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.92/build/spline-viewer.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+      background-color: #0a0a0a;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1rem 2rem;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #00ffe7;
+    }
+
+    .spline-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    spline-viewer {
+      width: 100%;
+      height: 100%;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      padding-top: 80px;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      padding: 5rem 2rem;
+      max-width: 1400px;
+    }
+
+    .left, .right {
+      width: 45%;
+      padding: 1rem;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 255, 231, 0.3);
+    }
+
+    .left {
+      margin-right: auto;
+    }
+
+    .right {
+      margin-left:100%;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: #00ffe7;
+    }
+
+    p {
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #111;
+      color: #aaa;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .row {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .left, .right {
+        width: 90%;
+        margin-bottom: 2rem;
+      }
+
+      .left, .right {
+        margin: 0;
+      }
+    }
+  </style>
 </head>
 <body>
-    <section class="hero" data-aos="fade-up">
-        <div>
-            <h1>Hi, I'm S.Rishi Vardhan</h1>
-            <p>Software Developer | Problem Solver | Tech Enthusiast</p>
-            <a href="https://github.com/realrishiiscool" class="btn btn-light">View My GitHub</a>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/rishi-vardhan-suthi-14ba83295/" target="_blank">LinkedIn</a>
-                <a href="https://www.instagram.com/realrishiiscool/" target="_blank">Instagram</a>
-            </div>
-        </div>
-    </section>
 
-    <section class="container py-5" id="projects">
-        <h2 class="text-center mb-4" data-aos="fade-right">Projects</h2>
-        
-        <h3 class="text-center">Frontend Deployments</h3>
-        <div class="row">
-            <div class="col-md-6" data-aos="fade-up">
-                <div class="card">
-                    <img src="image.png" alt="Project 1" style="width: 100px;padding-left: 10px;padding-top: 3px;">
-                    <div class="card-body">
-                        <h5 class="card-title">Test Project static website</h5>
-                        <p class="card-text">This is a website developed by me using GitHub.</p>
-                        <a href="https://minatonamikaze142005.github.io/MyWebsite/" class="btn btn-primary">View site</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6" data-aos="fade-up">
-                <div class="card">
-                    <img src="image.png" alt="Project 2" style="width: 100px;padding-left: 10px;padding-top: 3px;">
-                    <div class="card-body">
-                        <h5 class="card-title">Project 2</h5>
-                        <p class="card-text">Deploying of this website.</p>
-                        <a href="https://realrishiiscool.github.io/Myweb/" class="btn btn-primary">View site</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <h3 class="text-center mt-5">Backend GitHub Repositories</h3>
-        <div class="row">
-            <div class="col-md-6" data-aos="fade-up">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Backend Project 1</h5>
-                        <p class="card-text">This is the backend repository for Project 1.</p>
-                        <a href="https://github.com/realrishiiscool/backend-project1" class="btn btn-secondary">View on GitHub</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6" data-aos="fade-up">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Backend Project 2</h5>
-                        <p class="card-text">This is the backend repository for Project 2.</p>
-                        <a href="https://github.com/realrishiiscool/backend-project2" class="btn btn-secondary">View on GitHub</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <header>
+    <div><strong>MyPortfolio</strong></div>
+    <nav>
+        <a href="i.html">BOT</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
+  <!-- 3D Robot Background -->
+  <div class="spline-bg">
+    <spline-viewer url="https://prod.spline.design/L6L6NKiZzTc3dYHV/scene.splinecode"></spline-viewer>
+  </div>
+
+  <div class="content">
+    <!-- About Left -->
+    <div class="row" id="about">
+      <div class="left">
+        <h2>About Me</h2>
+        <p>
+          I'm a passionate software developer who loves building interactive websites and apps.
+          My focus is on creating smooth user experiences, working with 3D tools like Spline,
+          and learning cutting-edge tech like AI and Flutter.
+        </p>
+      </div>
+    </div>
+
+   <!-- Section 2 -->
+    <div class="row" id="projects">
+      <div class="right">
+        <h2>Projects</h2>
+        <p>
+          ✔️ AI-powered Tic Tac Toe<br />
+          ✔️ Student Course Flutter App<br />
+          ✔️ Math Handwriting Solver<br />
+          ✔️ 3D Portfolio Website with Spline
+        </p>
+      </div>
+    </div>
+
+
+    <!-- Contact Left -->
+    <div class="row" id="contact">
+      <div class="left">
+        <h2>Contact</h2>
+        <p>
+          📧 Email: suthirishivardhan@gmail.com<br />
+          🌐 LinkedIn: <a href="https://www.linkedin.com/in/rishi-vardhan-suthi-14ba83295/" style="color: #00ffe7;">Profile</a><br />
+          🧑‍💻 GitHub: <a href="https://github.com/realrishiiscool" style="color: #00ffe7;">@realrishiiscool</a>
+        </p>
+      </div>
+    </div>
+
+    <footer>
+      © 2025 Rishi. All rights reserved.
+    </footer>
+  </div>
+
 </body>
 </html>
