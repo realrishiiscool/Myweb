@@ -1,193 +1,893 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Portfolio</title>
+  <meta name="description" content="Suthi Rishi Vardhan - Full Stack Developer Portfolio" />
+  <title>Suthi Rishi Vardhan | Full Stack Developer</title>
+
   <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.92/build/spline-viewer.js"></script>
+
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       scroll-behavior: smooth;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: "Segoe UI", sans-serif;
     }
 
-    body, html {
-      height: 100%;
-      background-color: #0a0a0a;
-      color: white;
+    html,
+    body {
+      min-height: 100%;
+      background: #080808;
+      color: #fff;
       overflow-x: hidden;
     }
 
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 1rem 2rem;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    body {
+      line-height: 1.6;
     }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 1.5rem;
-      font-weight: 500;
-      transition: color 0.3s;
+    a {
+      color: inherit;
     }
 
-    nav a:hover {
-      color: #00ffe7;
-    }
+    /* ================= BACKGROUND ================= */
 
     .spline-bg {
       position: fixed;
-      top: 0;
-      left: 0;
+      inset: 0;
       width: 100%;
       height: 100vh;
       z-index: 0;
       pointer-events: none;
+      opacity: 0.72;
     }
 
     spline-viewer {
       width: 100%;
       height: 100%;
+      display: block;
     }
 
-    .content {
-      position: relative;
+    .background-overlay {
+      position: fixed;
+      inset: 0;
       z-index: 1;
-      display: flex;
-      flex-direction: column;
-      padding-top: 80px;
+      pointer-events: none;
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(0, 255, 231, 0.08),
+          transparent 40%
+        ),
+        linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.25),
+          rgba(8, 8, 8, 0.96)
+        );
     }
 
-    .row {
+    /* ================= HEADER ================= */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 1rem 2rem;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(0, 255, 231, 0.1);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      padding: 5rem 2rem;
-      max-width: 1400px;
     }
 
-    .left, .right {
-      width: 45%;
-      padding: 1rem;
-      background-color: rgba(0, 0, 0, 0.6);
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0, 255, 231, 0.3);
+    .logo {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.25rem;
+      font-weight: 800;
     }
 
-    .left {
-      margin-right: auto;
-    }
-
-    .right {
-      margin-left:100%;
-    }
-
-    h2 {
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
+    .logo span {
       color: #00ffe7;
     }
 
-    p {
-      line-height: 1.6;
-      font-size: 1.1rem;
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 11px;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: 0.3s;
+      font-size: 0.92rem;
+    }
+
+    nav a:hover {
+      background: #00ffe7;
+      color: #000;
+    }
+
+    /* ================= MAIN ================= */
+
+    .content {
+      position: relative;
+      z-index: 2;
+      width: min(1200px, calc(100% - 32px));
+      margin: auto;
+      padding-top: 75px;
+    }
+
+    section {
+      padding: 90px 0;
+      scroll-margin-top: 85px;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-box {
+      width: min(850px, 100%);
+      padding: 50px 35px;
+      border: 1px solid rgba(0, 255, 231, 0.2);
+      border-radius: 24px;
+      background: rgba(0, 0, 0, 0.42);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 0 50px rgba(0, 255, 231, 0.05);
+    }
+
+    .eyebrow {
+      color: #00ffe7;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.7rem, 7vw, 5.5rem);
+      line-height: 1;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 span {
+      color: #00ffe7;
+    }
+
+    .hero h3 {
+      font-size: 1.35rem;
+      color: #ddd;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      color: #aaa;
+      font-size: 1.05rem;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      text-decoration: none;
+      padding: 11px 18px;
+      border-radius: 9px;
+      font-weight: 700;
+      transition: 0.3s;
+      border: 1px solid #00ffe7;
+    }
+
+    .btn-primary {
+      background: #00ffe7;
+      color: #000;
+    }
+
+    .btn-secondary {
+      background: rgba(0, 255, 231, 0.05);
+      color: #00ffe7;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 25px rgba(0, 255, 231, 0.2);
+    }
+
+    /* ================= TITLES ================= */
+
+    .section-title {
+      margin-bottom: 28px;
+    }
+
+    .section-title small {
+      color: #00ffe7;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-top: 5px;
+    }
+
+    .section-title p {
+      color: #aaa;
+      max-width: 700px;
+    }
+
+    /* ================= CARDS ================= */
+
+    .card {
+      background: rgba(0, 0, 0, 0.62);
+      border: 1px solid rgba(0, 255, 231, 0.14);
+      border-radius: 16px;
+      padding: 25px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      border-color: rgba(0, 255, 231, 0.4);
+      transform: translateY(-3px);
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: #aaa;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    /* ================= EXPERIENCE ================= */
+
+    .timeline {
+      border-left: 2px solid #00ffe7;
+      padding-left: 25px;
+    }
+
+    .date {
+      color: #00ffe7;
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .company {
+      color: #4dd9ff;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    /* ================= SKILLS ================= */
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 15px;
+    }
+
+    .tag {
+      border: 1px solid rgba(0, 255, 231, 0.2);
+      background: rgba(0, 255, 231, 0.04);
+      color: #ddd;
+      padding: 7px 12px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+    }
+
+    /* ================= PROJECTS ================= */
+
+    .project-type {
+      color: #00ffe7;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 7px;
+    }
+
+    .project-card ul {
+      margin: 14px 0 0 18px;
+      color: #aaa;
+    }
+
+    /* ================= TWO COLUMNS ================= */
+
+    .two-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    /* ================= LISTS ================= */
+
+    .clean-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .clean-list li {
+      padding: 13px 15px;
+      border-left: 3px solid #00ffe7;
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.035);
+      color: #aaa;
+    }
+
+    .clean-list strong {
+      display: block;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+
+    /* ================= CONTACT ================= */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .contact-card {
+      text-decoration: none;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.62);
+      border: 1px solid rgba(0, 255, 231, 0.14);
+      border-radius: 14px;
+      transition: 0.3s;
+    }
+
+    .contact-card:hover {
+      border-color: #00ffe7;
+      transform: translateY(-3px);
+    }
+
+    .contact-card small {
+      display: block;
+      color: #00ffe7;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .contact-card div {
+      color: #ddd;
+      word-break: break-word;
+    }
+
+    /* ================= FOOTER ================= */
 
     footer {
+      position: relative;
+      z-index: 2;
       text-align: center;
-      padding: 2rem;
-      background-color: #111;
-      color: #aaa;
-      margin-top: 3rem;
+      padding: 30px 15px 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: #888;
     }
 
-    @media (max-width: 768px) {
-      .row {
-        flex-direction: column;
-        align-items: center;
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 850px) {
+      nav {
+        display: none;
       }
 
-      .left, .right {
-        width: 90%;
-        margin-bottom: 2rem;
+      .grid,
+      .two-columns,
+      .contact-grid {
+        grid-template-columns: 1fr;
       }
 
-      .left, .right {
-        margin: 0;
+      section {
+        padding: 65px 0;
+      }
+
+      .hero {
+        min-height: 78vh;
+      }
+
+      .hero-box {
+        padding: 35px 20px;
       }
     }
   </style>
 </head>
+
 <body>
 
+  <!-- 3D Spline Background -->
+  <div class="spline-bg">
+    <spline-viewer
+      url="https://prod.spline.design/L6L6NKiZzTc3dYHV/scene.splinecode">
+    </spline-viewer>
+  </div>
+
+  <div class="background-overlay"></div>
+
+  <!-- HEADER -->
   <header>
-    <div><strong>MyPortfolio</strong></div>
-    <nav>
-        <a href="i.html">BOT</a>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="nav-container">
+      <a href="#home" class="logo">Rishi<span>.</span></a>
+
+      <nav>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+        <a href="i.html">3D Bot</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- 3D Robot Background -->
-  <div class="spline-bg">
-    <spline-viewer url="https://prod.spline.design/L6L6NKiZzTc3dYHV/scene.splinecode"></spline-viewer>
-  </div>
+  <main class="content">
 
-  <div class="content">
-    <!-- About Left -->
-    <div class="row" id="about">
-      <div class="left">
-        <h2>About Me</h2>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-box">
+
+        <div class="eyebrow">Full Stack Developer</div>
+
+        <h1>
+          Suthi Rishi <span>Vardhan</span>
+        </h1>
+
+        <h3>
+          Java • Spring Boot • MySQL • Web Development
+        </h3>
+
         <p>
-          I'm a passionate software developer who loves building interactive websites and apps.
-          My focus is on creating smooth user experiences, working with 3D tools like Spline,
-          and learning cutting-edge tech like AI and Flutter.
+          Tech enthusiast with a strong foundation in Java, JSP, Spring Boot,
+          MySQL, data structures and algorithms, and web development.
+          Adaptable, quick to learn, and passionate about using technology
+          to solve real-world problems.
+        </p>
+
+        <div class="buttons">
+          <a href="#projects" class="btn btn-primary">
+            View Projects
+          </a>
+
+          <a href="mailto:suthirishivardhan@gmail.com" class="btn btn-secondary">
+            Contact Me
+          </a>
+
+          <a href="i.html" class="btn btn-secondary">
+            Open 3D Bot
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+
+      <div class="section-title">
+        <small>01 — About Me</small>
+        <h2>Who I am</h2>
+      </div>
+
+      <div class="card">
+        <p>
+          I am a tech enthusiast with a robust foundation in Java, JSP,
+          Spring Boot, MySQL, basic data structures and algorithms, and
+          web development. I am adaptable and a quick learner, always
+          applying new technologies to solve real-world problems effectively.
         </p>
       </div>
-    </div>
 
-   <!-- Section 2 -->
-    <div class="row" id="projects">
-      <div class="right">
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+
+      <div class="section-title">
+        <small>02 — Experience</small>
+        <h2>Professional Experience</h2>
+      </div>
+
+      <div class="card timeline">
+
+        <div class="date">
+          05/2025 — 08/2025 · Visakhapatnam
+        </div>
+
+        <h3>
+          Full Stack Java Developer Intern
+        </h3>
+
+        <div class="company">
+          Mr Technologies
+        </div>
+
+        <p>
+          Internship focused on full stack Java development. Worked on
+          backend development using Spring Boot, building REST APIs and
+          implementing CRUD operations for real-time data management.
+          Gained hands-on experience integrating database operations with
+          web applications and improving system efficiency.
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+
+      <div class="section-title">
+        <small>03 — Skills</small>
+        <h2>Technical Skills</h2>
+      </div>
+
+      <div class="grid">
+
+        <div class="card">
+          <h3>Languages</h3>
+          <div class="tags">
+            <span class="tag">Java</span>
+            <span class="tag">Python</span>
+            <span class="tag">SQL</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Backend</h3>
+          <div class="tags">
+            <span class="tag">Spring Boot</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">REST APIs</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Frontend</h3>
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">Bootstrap</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Database & Tools</h3>
+          <div class="tags">
+            <span class="tag">MySQL</span>
+            <span class="tag">Git</span>
+            <span class="tag">Postman</span>
+            <span class="tag">DSA</span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+
+      <div class="section-title">
+        <small>04 — Projects</small>
         <h2>Projects</h2>
+      </div>
+
+      <div class="grid">
+
+        <div class="card project-card">
+
+          <div class="project-type">
+            Full Stack
+          </div>
+
+          <h3>
+            LMS Online Assessment Platform
+          </h3>
+
+          <p>
+            Full stack web application experience involving Java,
+            Spring Boot, MySQL, REST API development, database design,
+            and problem-solving using data structures and algorithms.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Java</span>
+            <span class="tag">Spring Boot</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">REST APIs</span>
+          </div>
+
+        </div>
+
+        <div class="card project-card">
+
+          <div class="project-type">
+            Web Application
+          </div>
+
+          <h3>
+            Railway Ticket Booking System
+          </h3>
+
+          <p>
+            Developed a web-based ticket booking system using Java,
+            JSP, and MySQL with user registration, ticket booking,
+            data management, and structured database design.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Java</span>
+            <span class="tag">JSP</span>
+            <span class="tag">MySQL</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+
+      <div class="section-title">
+        <small>05 — Education</small>
+        <h2>Education</h2>
+      </div>
+
+      <div class="grid">
+
+        <div class="card">
+          <div class="date">
+            08/2022 — 05/2026 · Visakhapatnam
+          </div>
+
+          <h3>
+            B.Tech in Computer Science and Engineering — AIML
+          </h3>
+
+          <div class="company">
+            Visakha Institute of Engineering and Technology
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="date">
+            06/2020 — 05/2022 · Visakhapatnam
+          </div>
+
+          <h3>
+            Intermediate (MPC)
+          </h3>
+
+          <div class="company">
+            Sri Chaitanya Junior College
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="date">
+            06/2019 — 05/2020 · Visakhapatnam
+          </div>
+
+          <h3>
+            SSC
+          </h3>
+
+          <div class="company">
+            Sri Chaitanya Techno Curriculum
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications">
+
+      <div class="section-title">
+        <small>06 — Certifications</small>
+        <h2>Certifications</h2>
+      </div>
+
+      <div class="two-columns">
+
+        <div class="card">
+          <ul class="clean-list">
+
+            <li>
+              <strong>NPTEL</strong>
+              DSA with Java
+            </li>
+
+            <li>
+              <strong>NPTEL</strong>
+              Programming with Java
+            </li>
+
+            <li>
+              <strong>IBM Skill Build</strong>
+              Data Analytics
+            </li>
+
+          </ul>
+        </div>
+
+        <div class="card">
+          <ul class="clean-list">
+
+            <li>
+              <strong>Infosys Springboard</strong>
+              Continuous Integration and Development
+            </li>
+
+            <li>
+              <strong>HackerRank</strong>
+              Certification on JAVA
+            </li>
+
+            <li>
+              <strong>HackerRank</strong>
+              Certification on Python
+            </li>
+
+          </ul>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section id="achievements">
+
+      <div class="section-title">
+        <small>07 — Achievements & Interests</small>
+        <h2>Beyond Code</h2>
+      </div>
+
+      <div class="two-columns">
+
+        <div class="card">
+
+          <ul class="clean-list">
+
+            <li>
+              <strong>Independence Day Elocution Winner</strong>
+              Secured first place in elocution on Independence Day.
+            </li>
+
+            <li>
+              <strong>World Peace Day Elocution Winner</strong>
+              Secured first place in elocution writing on World Peace Day.
+            </li>
+
+            <li>
+              <strong>Leadership & Emotional Intelligence</strong>
+              Strong leadership skills and emotional intelligence.
+            </li>
+
+          </ul>
+
+        </div>
+
+        <div class="card">
+
+          <ul class="clean-list">
+
+            <li>
+              <strong>Puzzle Solving</strong>
+              Puzzle solving including cubing and logical games.
+            </li>
+
+            <li>
+              <strong>Technology Research</strong>
+              Researching new technologies, including AI tools.
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+
+      <div class="section-title">
+        <small>08 — Contact</small>
+        <h2>Let's Connect</h2>
         <p>
-          ✔️ AI-powered Tic Tac Toe<br />
-          ✔️ Student Course Flutter App<br />
-          ✔️ Math Handwriting Solver<br />
-          ✔️ 3D Portfolio Website with Spline
+          Feel free to reach out for opportunities, collaborations,
+          or technology discussions.
         </p>
       </div>
-    </div>
 
+      <div class="contact-grid">
 
-    <!-- Contact Left -->
-    <div class="row" id="contact">
-      <div class="left">
-        <h2>Contact</h2>
-        <p>
-          📧 Email: suthirishivardhan@gmail.com<br />
-          🌐 LinkedIn: <a href="https://www.linkedin.com/in/rishi-vardhan-suthi-14ba83295/" style="color: #00ffe7;">Profile</a><br />
-          🧑‍💻 GitHub: <a href="https://github.com/realrishiiscool" style="color: #00ffe7;">@realrishiiscool</a>
-        </p>
+        <a
+          class="contact-card"
+          href="mailto:suthirishivardhan@gmail.com"
+        >
+          <small>Email</small>
+          <div>suthirishivardhan@gmail.com</div>
+        </a>
+
+        <a
+          class="contact-card"
+          href="https://github.com/realrishiiscool"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <small>GitHub</small>
+          <div>github.com/realrishiiscool</div>
+        </a>
+
+        <a
+          class="contact-card"
+          href="https://www.linkedin.com/in/rishi-vardhan-suthi-14ba83295/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <small>LinkedIn</small>
+          <div>Rishi Vardhan Suthi</div>
+        </a>
+
       </div>
-    </div>
 
-    <footer>
-      © 2025 Rishi. All rights reserved.
-    </footer>
-  </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 Suthi Rishi Vardhan. All rights reserved.
+  </footer>
 
 </body>
 </html>
